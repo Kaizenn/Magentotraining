@@ -1,0 +1,10 @@
+<layout version="0.1.0">           
+      <routeurfrontend_index_index>
+      		<reference name="right">
+            	<block type="olivier/olivbloc"  name="olivbloc_afficher" template="olivier/contact.phtml" />
+        	</reference>
+        	<reference name="content">
+        	   <block type="olivier/olivbloc"  name="olivbloc_module" template="olivier/module.phtml" />
+        	</reference>
+      </routeurfrontend_index_index>
+</layout>

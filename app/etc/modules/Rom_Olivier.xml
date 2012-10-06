@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+   <config>
+      <modules>
+        <Rom_Olivier>
+            <active>true</active>
+            <codePool>local</codePool>
+         </Rom_Olivier>
+       </modules>
+    </config>

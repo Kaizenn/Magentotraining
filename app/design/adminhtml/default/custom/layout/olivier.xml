@@ -1,0 +1,8 @@
+<layout version="0.1.0">
+  <olivier_adminhtml_index_index>
+     <reference name="content">
+     		<block type="olivier/adminhtml_grid" name="olivier" />
+             <block type="olivier/olivbloc"  name="olivbloc_module_admin" template="olivier/module.phtml" />
+      </reference>
+   </olivier_adminhtml_index_index>
+</layout>
