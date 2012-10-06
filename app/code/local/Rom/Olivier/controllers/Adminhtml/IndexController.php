@@ -13,11 +13,11 @@ class Rom_Olivier_Adminhtml_IndexController extends Mage_Adminhtml_Controller_Ac
          $this->renderLayout();
       }
       public function editAction()
-      {
+      {      
            $olivierId = $this->getRequest()->getParam('id');
            $olivierModel = Mage::getModel('olivier/olivier')->load($olivierId);
            if ($olivierModel->getId() || $olivierId == 0)
-           {
+           {            
              Mage::register('olivier_data', $olivierModel);
              $this->loadLayout();
              $this->_setActiveMenu('olivier/set_time');
@@ -41,16 +41,21 @@ class Rom_Olivier_Adminhtml_IndexController extends Mage_Adminhtml_Controller_Ac
        }
        public function newAction()
        {
+          $data = array( 'action' => 'ajout');
+          Mage::dispatchEvent('rom_olivier_action', $data);
           $this->_forward('edit');
        }
        public function saveAction()
        {
+       		$data = array( 'action' => 'sauver');
+          	Mage::dispatchEvent('rom_olivier_action', $data);
+          	
          if ($this->getRequest()->getPost())
          {
            try {
                  $postData = $this->getRequest()->getPost();
                  $olivierModel = Mage::getModel('olivier/olivier');
-               if( $this->getRequest()->getParam('id') <= 0 )
+               if( $this->getRequest()->getParam('id') <= 0 )               	
                   $olivierModel->setCreatedTime(
                      Mage::getSingleton('core/date')
                             ->gmtDate()
@@ -62,6 +67,11 @@ class Rom_Olivier_Adminhtml_IndexController extends Mage_Adminhtml_Controller_Ac
                              ->gmtDate())
                     ->setId($this->getRequest()->getParam('id'))
                     ->save();
+                    
+                    // Observeur
+					// $data = array( 'data' => 'foo', 'layout' => $this->getLayout());
+					// Mage::dispatchEvent('rom_olivier_action');
+					 
                  Mage::getSingleton('adminhtml/session')
                                ->addSuccess('successfully saved');
                  Mage::getSingleton('adminhtml/session')
@@ -85,6 +95,10 @@ class Rom_Olivier_Adminhtml_IndexController extends Mage_Adminhtml_Controller_Ac
             }
           public function deleteAction()
           {
+          
+          	$data = array( 'action' => 'suppression');
+          	Mage::dispatchEvent('rom_olivier_action', $data);
+          
               if($this->getRequest()->getParam('id') > 0)
               {
                 try

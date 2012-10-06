@@ -23,40 +23,6 @@
 			</updates>
 		</layout>
 	</frontend>
-	<global>
-		<blocks>
-			<olivier>
-				<class>Rom_Olivier_Block</class>
-			</olivier>
-		</blocks>
-		<models>
-			<olivier>
-				 <class>Rom_Olivier_Model</class>
-				 <resourceModel>olivier_mysql4</resourceModel>
-			 </olivier>
-			<olivier_mysql4>
-				 <class>Rom_Olivier_Model_Mysql4</class>
-				 <entities>
-					 <olivier>
-					   <table>rom_olivier</table>
-					 </olivier>
-				  </entities>
-			</olivier_mysql4>
-			</models>
-			<resources>
-				<olivier_write>
-					<connection>
-						<use>core_write</use>
-					</connection>
-				</olivier_write>
-					
-				<olivier_read>
-					<connection>
-						<use>core_read</use>
-					</connection>
-				</olivier_read>
-			</resources>
-	</global>
 	<admin>
 		<routers>
 			<olivier>
@@ -76,17 +42,91 @@
 				</olivier>
 			</updates>
 		</layout>
-	<menu>
-		<olivier translate="title" module="adminhtml">
-			<title>Mon module</title>
-			<sort_order>100</sort_order>
-			<children>
-				<set_time>
-					<title>Annuaire</title>
-					<action>adminolivier/adminhtml_index</action>
-				</set_time>
-			</children>
-		</olivier>
-	</menu>
-</adminhtml>
+		<menu>
+			<olivier translate="title" module="adminhtml">
+				<title>Mon module</title>
+				<sort_order>100</sort_order>
+				<children>
+					<set_time>
+						<title>Annuaire</title>
+						<action>adminolivier/adminhtml_index</action>
+					</set_time>
+				</children>
+			</olivier>
+		</menu>
+		<acl>
+        	<resources>
+            	<admin>
+                	<children>
+                    	<system>
+                        	<children>
+                            	<config>
+                                	<children>
+                                    	<olivier_section translate="title">
+                                        	<title>Ma Section</title>
+                                        	<sort_order>100</sort_order>
+                                    	</olivier_section>
+                                	</children>
+                            	</config>
+                        	</children>
+                    	</system>
+                	 </children>
+            	</admin>
+        	</resources>
+    	</acl>
+	</adminhtml>
+	<global>
+		<blocks>
+			<olivier>
+				<class>Rom_Olivier_Block</class>
+			</olivier>
+		</blocks>
+		<models>
+			<olivier>
+				 <class>Rom_Olivier_Model</class>
+				 <resourceModel>olivier_mysql4</resourceModel>
+			 </olivier>
+			<olivier_mysql4>
+				 <class>Rom_Olivier_Model_Mysql4</class>
+				 <entities>
+					 <olivier>
+					   <table>rom_olivier</table>
+					 </olivier>
+					 <action>
+					 	<table>rom_olivier_action</table>
+					 </action>
+				  </entities>
+			</olivier_mysql4>
+		</models>
+		<resources>
+			<olivier_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</olivier_write>
+			<olivier_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</olivier_read>
+		</resources>
+		<events>
+			<rom_olivier_action>
+				<observers>
+			   		<Rom_Olivier_Model_Observer>
+				   		<type>singleton</type>
+				   		<class>olivier/observer</class>
+				   		<method>checkActionObserve</method>
+				   	</Rom_Olivier_Model_Observer>
+			   	</observers>
+		  	</rom_olivier_action>
+		</events>
+	</global>
+	<default>	
+		<olivier_section>
+            <olivier_group>
+                <olivier_field>@config.xml</olivier_field>
+            </olivier_group>
+        </olivier_section>
+    </default>
 </config>

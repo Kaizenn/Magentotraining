@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<config>
+    <tabs>
+        <olivier_tab translate="label">
+            <label>Olivier - Tab</label>
+            <sort_order>100</sort_order>
+        </olivier_tab>
+    </tabs>
+    <sections>
+        <olivier_section translate="label">
+            <label>Olivier - Section</label>
+            <sort_order>200</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <tab>olivier_tab</tab>
+            <groups>
+                <olivier_group translate="label">
+                    <label>Olivier - Group Label</label>
+                    <comment>[Ceci est un commentaire "Olivier - Group Label"]</comment>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <olivier_field translate="commentaire du label">
+                            <label>Olivier - Field Label</label>
+                            <comment>[ceci est un commentaire "livier - Field Label"]</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_input>text</frontend_input>
+                        </olivier_field>
+                    </fields>
+                </olivier_group>
+            </groups>
+        </olivier_section>
+    </sections>
+</config>

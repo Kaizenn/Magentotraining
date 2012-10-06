@@ -1,5 +1,5 @@
 <?php
-class Rom_Olivier_Block_Adminhtml_Olivier_Grid extends Mage_Adminhtml_Block_Widget_Grid
+class Rom_Olivier_Block_Adminhtml_olivier_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
    public function __construct()
    {

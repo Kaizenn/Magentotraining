@@ -2,7 +2,7 @@
 class Rom_Olivier_Block_Olivbloc extends Mage_Core_Block_Template
 {
 	public function mainFonction() {
-		return 'Ceci est la mÃ©thode methodbloc() @ Rom_Olivier_Block_Olivbloc';
+		return 'Ceci est la méthode methodbloc() @ Rom_Olivier_Block_Olivbloc';
 	}
 	
 	 public function afficheAnnuaire()
@@ -10,22 +10,22 @@ class Rom_Olivier_Block_Olivbloc extends Mage_Core_Block_Template
 		//on initialize la variable
         $retour='';
         /* on fait une requette : aller chercher Tous les elements
-        de la table rom_olivier (grace Ã  notre model olivier/olivier
+        de la table rom_olivier (grace à notre model olivier/olivier
     	et les trier par id_rom_olivier */
 	$collection = Mage::getModel('olivier/olivier')->getCollection()->setOrder('id_rom_olivier','asc');
         /* ensuite on parcours le resultat de la requette et
         avec la fonction getData(), on stocke dans la variable retour
-    	(pour lâaffichage dans le template) les donnÃ©es voulues */
+    	(pour l’affichage dans le template) les données voulues */
     	foreach($collection as $data)
     	{
-            $retour .= '<b>'.$data->getData('nom').' '.$data->getData('prenom').' : '.$data->getData('telephone').'</b><br />';
+            $retour .= '<b>'.$data->getData('nom').' '.$data->getData('prenom').' : </b>'.$data->getData('telephone').'<br />';
     	}
     	return $retour;
 	}
 	
 	public function saveAnnuaire()
  	{
-		//on recuperes les donnÃ©es envoyÃ©es en POST
+		//on recuperes les données envoyées en POST
 		$nom = ''.$this->getRequest()->getPost('nom');
 		$prenom = ''.$this->getRequest()->getPost('prenom');
 		$telephone = ''.$this->getRequest()->getPost('telephone');

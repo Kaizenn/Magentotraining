@@ -1,6 +1,6 @@
 <?php
 /**
- *	Câest ici que vous indiquez a Magento que votre model olivier/olivier va utiliser comme clef primaire le champ id_rom_olivier.
+ *	C’est ici que vous indiquez a Magento que votre model olivier/olivier va utiliser comme clef primaire le champ id_rom_olivier.
  */
 ?>
 

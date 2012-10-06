@@ -11,6 +11,7 @@ class Rom_Olivier_Block_Adminhtml_Olivier_Edit_Form extends Mage_Adminhtml_Block
                  'method' => 'post',
                  )
               );
+              	
       $form->setUseContainer(true);
       $this->setForm($form);
       return parent::_prepareForm();
