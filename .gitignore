@@ -1,23 +1,7 @@
-cache/*
+var/cache/*
 
-log/*
+var/log/*
 
-web/uploads/*
-
-config/databases.xml
-
-config/propel.ini
-
-data/sql
-
-lib/filter/doctrine/base/Base*
-
-lib/form/doctrine/base/Base*
-
-lib/model/doctrine/base/Base*
-
-lib/model/om/*
-
-lib/model/map/*
+var/session/*
 
 app/etc/local.xml
