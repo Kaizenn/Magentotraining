@@ -1,0 +1,54 @@
+=================<br />
+MODULE - OLIVIER<br />
+=================<br />
+<br />
+<b>Required files :</b><br />
+<b>- app/code/local/Rom/Olivier/config.xml :</b> Declare olivier.xml <br />
+<b>- app/code/local/Rom/Olivier/controllers/IndexController.php :</b> Load & Display Layout <br />
+<b>- app/code/local/Rom/Olivier/Block/Olivbloc.php :</b> Contain function <br />
+<b>- app/design/frontend/default/custom/layout/olivier.xml :</b> Define where the bloc must appear on the website, his type, and the .phtml associated (module.phtml) <br />
+<b>- app/design/frontend/default/custom/template/olivier/module.phtml :</b> Template file
+<br /><br />
+<b><?php echo $this->mainFonction(); ?></b>
+<br /><br />
+=========<br />
+ANNUAIRE<br />
+=========<br />
+<br />
+<b>Required files :</b> Same as above<br />
+<b>New Required files :</b><br />
+<b>- app/code/local/Rom/Olivier/Model files :</b> Model in order to recover data <br />
+<b>- app/code/local/Rom/Olivier/config.xml :</b> Declare Model part <br /><br />
+
+<h2>1- Ajout de contact</h2>
+<form action="" method="post">
+  <fieldset>
+    <ul>
+     <li>
+       <label for="nom">Nom</label>
+       <input type="text" id="nom" name="nom" />
+     </li>
+     <li>
+         <label for="prenom ">Prenom</label>
+         <input type="text" id="prenom" name="prenom" />
+     </li>
+     <li>
+        <label for="nom">Telephone</label>
+        <input type="text" id="telephone" name="telephone" />
+    </li>
+     <li>
+        <input type="submit" value="Save" />
+    </li>
+  </ul>
+ </fieldset>
+</form>
+<br /><br />
+<?php echo $this->saveAnnuaire(); ?>
+
+<h2>2- Suppression de contact</h2>
+<form action="" method="post">
+  <fieldset>
+	<b><?php echo $this->supprimerAnnuaire(); ?></b>
+	<input type="submit" value="Delete" />
+  </fieldset>
+</form>
